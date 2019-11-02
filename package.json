@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack",
-    "dev": "webpack-dev-server"
+    "dev": "webpack-dev-server",
+    "lint": "standard"
   },
   "repository": {
     "type": "git",
@@ -25,6 +26,7 @@
     "@babel/preset-react": "7.6.3",
     "babel-loader": "8.0.6",
     "html-webpack-plugin": "3.2.0",
+    "standard": "14.3.1",
     "webpack": "4.41.2",
     "webpack-cli": "3.3.10",
     "webpack-dev-server": "3.9.0"
@@ -32,5 +34,17 @@
   "dependencies": {
     "react": "16.11.0",
     "react-dom": "16.11.0"
+  },
+  "standard": {
+    "ignore": ["/api/**"]
+  },
+  "eslintConfig": {
+    "extends": ["./node_modules/standard/eslintrc.json"]
+  },
+  "prettier": {
+    "editor.formatOnSave": false,
+    "[javascript]": {
+      "editor.formatOnSave": true
+    }
   }
 }
