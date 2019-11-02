@@ -33,13 +33,18 @@
   },
   "dependencies": {
     "react": "16.11.0",
-    "react-dom": "16.11.0"
+    "react-dom": "16.11.0",
+    "styled-components": "^4.4.1"
   },
   "standard": {
-    "ignore": ["/api/**"]
+    "ignore": [
+      "/api/**"
+    ]
   },
   "eslintConfig": {
-    "extends": ["./node_modules/standard/eslintrc.json"]
+    "extends": [
+      "./node_modules/standard/eslintrc.json"
+    ]
   },
   "prettier": {
     "editor.formatOnSave": false,
