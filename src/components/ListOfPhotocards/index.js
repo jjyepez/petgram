@@ -2,10 +2,11 @@ import React from 'react'
 import { PhotoCard } from '../PhotoCard'
 
 export const ListOfPhotocards = () => {
+  let i = 0
   return (
     <ul>
       {
-        [1, 2, 3].map(photocard => <PhotoCard key={photocard} />)
+        Array(20).fill().map(photocard => <PhotoCard key={i++} />)
       }
     </ul>
   )
