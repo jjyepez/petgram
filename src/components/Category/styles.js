@@ -9,11 +9,13 @@ export const Anchor = styled.a`
 `
 
 export const Image = styled.img`
-    border: 1px solid #ccc;
+    box-sizing: border-box;
+    border: 3px solid #eee;
     box-shadow: 0 10px 14px rgba(0,0,0,.2);
     object-fit: cover;
     overflow: hidden;
     border-radius: 50%;
     width: 75px;
     height: 75px;
+    margin-bottom: 5px;
 `
