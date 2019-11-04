@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
 export const Anchor = styled.a`
     display:flex;
@@ -18,4 +18,8 @@ export const Image = styled.img`
     width: 75px;
     height: 75px;
     margin-bottom: 5px;
+    background-color: #ddd;
+    ${props => props.loading === 'true' && css`
+        object-fit: scale-down;
+    `}
 `

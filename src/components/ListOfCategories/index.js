@@ -5,16 +5,32 @@ import React, {
 import { Category } from '../Category'
 import { List, Item } from './styles'
 
-export const ListOfCategories = () => {
-  const [categories, setCategories] = useState([])
-  const [showFixed, setShowFixed] = useState(false)
+function useCategoriesData () {
+  const [categories, setCategories] = useState(Array(5).fill({}))
+  const [loading, setLoading] = useState(false)
 
   useEffect(function () {
     // traer info desde una API
-    window.fetch('https://petgram-server.jjyepez.now.sh/categories')
-      .then(rslt => rslt.json())
-      .then(json => setCategories(json))
+    setLoading(true)
+    setTimeout(() => {
+      window.fetch('https://petgram-server.jjyepez.now.sh/categories')
+        .then(rslt => rslt.json())
+        .then(json => {
+          setCategories(json)
+          setLoading(false)
+        })
+    }, 2000)
   }, [])
+
+  return {
+    categories,
+    loading
+  }
+}
+
+export const ListOfCategories = () => {
+  const { categories, loading } = useCategoriesData([])
+  const [showFixed, setShowFixed] = useState(false)
 
   useEffect(function () {
     // manejo de scroll y visualización de menú fijo
@@ -29,11 +45,17 @@ export const ListOfCategories = () => {
     }
   }, [showFixed])
 
-  const renderList = (fixed) => {
+  const renderList = (fixed, loading) => {
     return (
-      <List className={fixed ? 'fixed' : ''}>
+      <List fixed={fixed}>
         {
-          categories.map(category => <Item key={category.id}><Category {...category} /></Item>)
+          categories.map((category, i) => {
+            return (
+              <Item key={category.id || i}>
+                <Category {...category} loading={loading.toString()} />
+              </Item>
+            )
+          })
         }
       </List>
     )
@@ -41,8 +63,8 @@ export const ListOfCategories = () => {
 
   return (
     <>
-      {renderList()}
-      {showFixed && renderList(true)}
+      {renderList(false, loading)}
+      {showFixed && renderList(true, loading)}
     </>
   )
 }

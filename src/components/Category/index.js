@@ -1,10 +1,10 @@
 import React from 'react'
 import { Anchor, Image } from './styles'
-const DEFAULT_IMAGE = 'https://i.imgur.com/dJa0Hpl.jpg'
+const DEFAULT_IMAGE = 'http://samherbert.net/svg-loaders/svg-loaders/tail-spin.svg'
 
-export const Category = ({ cover = DEFAULT_IMAGE, path, emoji = '?' }) => (
+export const Category = ({ cover = DEFAULT_IMAGE, path, emoji = '󠀠 ', loading = true }) => (
   <Anchor href={path}>
-    <Image src={cover} />
+    <Image src={cover} loading={loading} />
     {emoji}
   </Anchor>
 )
