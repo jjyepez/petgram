@@ -6,7 +6,7 @@ export const ListOfPhotocards = () => {
   return (
     <ul>
       {
-        Array(20).fill().map(photocard => <PhotoCard key={i++} />)
+        Array(20).fill().map(photocard => <PhotoCard key={i++} id={i} />)
       }
     </ul>
   )
