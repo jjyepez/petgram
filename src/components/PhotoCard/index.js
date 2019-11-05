@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from 'react'
+import React from 'react'
 import { ImgWrapper, Img, Button, Article } from './styles'
 import { MdFavorite, MdFavoriteBorder } from 'react-icons/md'
 import { useLocalStorage } from '../../hooks/useLocalStorage'
